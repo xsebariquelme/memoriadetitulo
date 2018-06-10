@@ -1,0 +1,590 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>Recomendador de Frameworks</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+     <header class="masthead mb-auto">
+        <div class="inner">
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link active" href="recomendador.html">Recomendador</a>
+            <a class="nav-link" href="informacion.html">Información</a>
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+	   <h1 class="justify-content-center align-items-center" style="text-align:center;">Recomendador de Frameworks</h1>
+	   <br>
+        <div class="card" >
+  <!-- <div class="card-heading" style="color:black;">Recomendador de Frameworks</div> -->
+  <div class="card-body">
+  <form>
+  <div class="form-group">
+    <label for="area" data-toggle="tooltip" title="Seleccione el área de su empresa" style="color:black;">Área de la empresa</label>
+    <select class="form-control" id="area">
+                      <option value="1">Análisis de datos</option>
+                      <option value="2">Bancarias</option>
+                      <option value="3">Comercio</option>
+                      <option value="4">Educación</option>
+                      <option value="5">Entretenimiento</option>
+                      <option value="6">Salud</option>
+                      <option value="7">Sector público</option>
+                      <option value="8">Social</option>
+                      <option value="9">Tecnología</option>
+                      <option value="10">Videojuegos</option>
+    </select>
+  </div>
+<div class="form-group">
+    <label for="tamano" data-toggle="tooltip" title="Seleccione el tamaño de su empresa" style="color:black;">Tamaño de la empresa</label>
+    <select class="form-control" id="tamano">
+			<option value="1">Microempresa (1 a de 5 personas)</option>
+            <option value="2">Pequeña (6 a 50 personas)</option>
+            <option value="3">Mediana (51 a 400 personas)</option>
+			<option value="4">Grande (+401 personas)</option>
+    </select>
+  </div>
+
+</form>
+<div class="row">
+<div class="col-sm-12 col-sm-offset-9">
+    <button class="alert btn btn-primary" href="#" onclick="" style="
+    padding-top: 5px;
+    padding-bottom: 5px;
+">Enviar</button>
+</div>
+</div>
+  </div>
+</div>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <!-- <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p> -->
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="jquery-slim.min.js"><\/script>')</script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+    <!-- bootbox code -->
+    <script src="bootbox.min.js"></script>
+	<script>
+	$(window).on('load',function(){
+        bootbox.alert({ 
+			size: "large",
+			title: "Bienvenido al recomendador de frameworks",
+			message: "Para", 
+			callback: function(){ /* your callback code */ }
+			})
+    });
+	</script>
+	<script>
+        $(document).on("click", ".alert", function(e) {
+		var area = document.getElementById('area');
+		var tamano = document.getElementById('tamano');
+		var areaValue = area.options[area.selectedIndex].value;
+		var tamanoValue = tamano.options[tamano.selectedIndex].value;
+		var areaText = area.options[area.selectedIndex].text;
+		var tamanoText = tamano.options[tamano.selectedIndex].text;
+		
+		        switch (areaValue) {
+          case '1':
+            switch (tamanoValue) {
+              case '1':
+
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados ", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '2':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '3':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+				
+				case '4':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+
+            }
+            break;
+          case '2':
+            switch (tamanoValue) {
+                            case '1':
+
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: ELECTRONJS ", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '2':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '3':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+				
+				case '4':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: SCITER", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+
+            }
+            break;
+          case '3':
+            switch (tamanoValue) {
+                case '1':
+
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: ElectronJS ", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '2':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: ElectronJS ", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '3':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+				
+				case '4':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: NWjs", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+
+            }
+            break;
+          case '4':
+            switch (tamanoValue) {
+                            case '1':
+
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: ElectronJS", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '2':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: ElectronJS", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '3':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: NWjs", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+				
+				case '4':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: ElectronJS", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+
+            }
+            break;
+          case '5':
+            switch (tamanoValue) {
+                           case '1':
+
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: NWjs", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '2':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: ElectronJS", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '3':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+				
+				case '4':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: ElectronJS - Sciter", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+
+            }
+            break;
+          case '6':
+            switch (tamanoValue) {
+                            case '1':
+
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: ElectronJS", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '2':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: Sciter", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '3':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+				
+				case '4':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: Sciter", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+
+            }
+            break;
+          case '7':
+            switch (tamanoValue) {
+                            case '1':
+
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: ElectronJS", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '2':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '3':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+				
+				case '4':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: Sciter", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+
+            }
+            break;
+          case '8':
+            switch (tamanoValue) {
+                            case '1':
+
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '2':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: ElectronJS", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '3':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: NWjs", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+				
+				case '4':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+
+            }
+            break;
+          case '9':
+            switch (tamanoValue) {
+                            case '1':
+
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '2':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '3':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+				
+				case '4':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: NWjs", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+
+            }
+            break;
+          case '10':
+            switch (tamanoValue) {
+                           case '1':
+
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '2':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: No hay resultados", 
+			callback: function(){ /* your callback code */ }
+			})
+
+                break;
+				
+              case '3':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: NWjs ", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+				
+				case '4':
+			  
+                 bootbox.alert({ 
+			size: "large",
+			title: "Resultado",
+			message: "Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es: ElectronJS ", 
+			callback: function(){ /* your callback code */ }
+			})
+                break;
+
+            }
+            break;
+          
+        }
+		
+		
+            
+        });
+    </script>
+	<script>
+	$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+	</script>
+  </body>
+</html>
