@@ -15,6 +15,8 @@
 
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="default.css">
+	<link rel="stylesheet" type="text/css" href="alertify.css">
   </head>
 
   <body class="text-center">
@@ -22,10 +24,13 @@
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
      <header class="masthead mb-auto">
         <div class="inner">
+		<div style="float: left;">
+		<img src="logo_ubb.png" alt="Universidad del Bío-Bío" height="100" width="140" >
+		</div>
+		
           <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link" href="index.html">Inicio</a>
             <a class="nav-link active" href="recomendador.html">Recomendador</a>
-            <a class="nav-link" href="informacion.html">Información</a>
           </nav>
         </div>
       </header>
@@ -36,7 +41,19 @@
         <div class="card" >
   <!-- <div class="card-heading" style="color:black;">Recomendador de Frameworks</div> -->
   <div class="card-body">
-  <form>
+  <form id="formulario">
+	<div class="form-group">
+	<label for="nombre" data-toggle="tooltip" title="Ingrese su nombre" style="color:black;">Nombre</label>
+					<input type="text" class="form-control input-sm" id="nombre" name="">
+	</div>
+	<div class="form-group">
+	<label for="correo" data-toggle="tooltip" title="Ingrese su correo electronico" style="color:black;">Correo Electronico</label>
+					<input type="email" class="form-control input-sm" id="correo" name="">
+	</div>
+	<div class="form-group">
+	<label for="nombreEmpresa" data-toggle="tooltip" title="Ingrese el nombre de su empresa" style="color:black;">Nombre de la empresa</label>
+					<input type="text" class="form-control input-sm" id="nombreEmpresa" name="">
+	</div>	
   <div class="form-group">
     <label for="area" data-toggle="tooltip" title="Seleccione el área de su empresa" style="color:black;">Área de la empresa</label>
     <select class="form-control" id="area">
@@ -86,14 +103,15 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="jquery-slim.min.js"><\/script>')</script>
+   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="jquery-3.3.1.min.js"><\/script>')</script>
     <script src="popper.min.js"></script>
     <script src="bootstrap.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 
     <!-- bootbox code -->
     <script src="bootbox.min.js"></script>
+	<script src="alertify.js"></script>
 	<script>
 	$(window).on('load',function(){
         bootbox.alert({ 
@@ -112,6 +130,39 @@
 		var tamanoValue = tamano.options[tamano.selectedIndex].value;
 		var areaText = area.options[area.selectedIndex].text;
 		var tamanoText = tamano.options[tamano.selectedIndex].text;
+		
+		if($('#nombre').val()==""){
+				alertify.alert("Error","Debe ingresar su nombre");
+				return false;
+			}else if($('#correo').val()==""){
+				alertify.alert("Error","Debe ingresar su correo");
+				return false;
+			}else if($('#nombreEmpresa').val()==""){
+				alertify.alert("Error","Debe ingresar el nombre de la empresa");
+				return false;
+			}
+		
+					cadena="nombre=" + $('#nombre').val() +
+					"&correo=" + $('#correo').val() +
+					"&nombreEmpresa=" + $('#nombreEmpresa').val() +
+					"&areaEmpresa=" + areaText +
+					"&tamanoEmpresa="+ tamanoText;
+
+					$.ajax({
+						type:"POST",
+						url:"registro.php",
+						data:cadena,
+						success:function(r){
+
+							if(r==1){
+								$('#formulario')[0].reset();
+								alertify.success("Agregado con exito");
+							}else{
+								alertify.error("Error","Ocurrio un error");
+							}
+						}
+					});
+		
 		
 		        switch (areaValue) {
           case '1':
