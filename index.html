@@ -1,63 +1,67 @@
 
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <link rel="icon" href="../../../../favicon.ico">
 
     <title>Recomendador de Frameworks</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
   </head>
 
-  <body class="text-center">
+  <body>
 
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-	
-   <header class="masthead mb-auto">
-        <div class="inner">
-		<div style="float: left;">
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div style="float: left;">
 		<img src="logo_ubb.png" alt="Universidad del Bío-Bío" height="100" width="140" >
 		</div>
-		
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="index.html">Inicio</a>
-            <a class="nav-link" href="recomendador.html">Recomendador</a>
-          </nav>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="recomendador.html">Recomendador</a>
+            </li>
+
+          </ul>
         </div>
-      </header>
+      </nav>
+    </header>
 
-      <main role="main" class="inner cover">
-        <h1 class="cover-heading">Recomendador de Frameworks</h1>
-        <p class="lead">"El Recomendador de Frameworks es el producto de la memoria de titulo"</p>
-        <p class="lead">
-          <a href="recomendador.html" class="btn btn-lg btn-secondary">Ir al recomendador</a>
-        </p>
-      </main>
+    <!-- Begin page content -->
+    <main role="main" class="container">
+      <h1 class="mt-5">Recomendador de Frameworks</h1>
+      <p class="lead">El Recomendador de Frameworks es el resultado del proyecto de titulo "Estudio de frameworks y librerías para desarrollo de aplicaciones híbridas" realizado por Sebastián Riquelme Villarroel de la Universidad del Bío-Bío en Chillán.</p>
+      <a href="recomendador.html" class="btn btn-lg btn-secondary">Ir al recomendador</a>
+    </main>
 
-      <footer class="mastfoot mt-auto">
-        <div class="inner">
-			<div style="float: left;">
-		<img src="logo_ici.png" alt="ICI" height="50" width="200" >
-		</div>
-          <p>Sebastián Riquelme Villarroel - 2018</p>
-        </div>
-      </footer>
-    </div>
+    <footer class="footer">
+      <div class="container">
 
+		<img src="logo_ici.png" alt="Universidad del Bío-Bío" height="50" width="200" >
+
+      </div>
+    </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="jquery-slim.min.js"><\/script>')</script>
+   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="jquery-3.3.1.min.js"><\/script>')</script>
     <script src="popper.min.js"></script>
     <script src="bootstrap.min.js"></script>
   </body>
