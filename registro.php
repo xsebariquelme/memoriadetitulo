@@ -1,5 +1,4 @@
 <?php 
-
 	require_once "conexion.php";
 	$conexion=conexion();
 
@@ -14,6 +13,5 @@
 			$sql="INSERT into resultados (nombre,correo,nombreEmpresa,areaEmpresa,tamanoEmpresa,resultadoFramework)
 				values ('$nombre','$correo','$nombreEmpresa','$areaEmpresa','$tamanoEmpresa','$resultado')";
 			echo $result=mysqli_query($conexion,$sql);
-		
 
  ?>
