@@ -8,7 +8,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="../../../../favicon.ico">
 
-	<title>Recomendador de Frameworks</title>
+	<title>Herramienta sugeridora de Frameworks</title>
 
 	<!-- Bootstrap core CSS -->
 	<link href="bootstrap.css" rel="stylesheet">
@@ -37,7 +37,7 @@
 						<a class="nav-link" href="index.html">Inicio </a>
 					</li>
 					<li class="nav-item active">
-						<a class="nav-link" href="recomendador.html">Recomendador
+						<a class="nav-link" href="recomendador.html">Herramienta sugeridora
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
@@ -50,10 +50,9 @@
 	<!-- Begin page content -->
 	<main role="main" class="container">
 		<h1 class="cover-heading">
-			<center>Recomendador de Frameworks</center>
+			<center>Herramienta sugeridora de Frameworks</center>
 		</h1>
 		<div class="card">
-			<!-- <div class="card-heading" style="color:black;">Recomendador de Frameworks</div> -->
 			<div class="card-body">
 				<form id="formulario">
 					<div class="form-group">
@@ -61,7 +60,7 @@
 						<input type="text" class="form-control input-sm" id="nombre" name="">
 					</div>
 					<div class="form-group">
-						<label for="correo" data-toggle="tooltip" title="Ingrese su correo electronico" style="color:black;">Correo Electronico</label>
+						<label for="correo" data-toggle="tooltip" title="Ingrese su correo electrónico" style="color:black;">Correo Electrónico</label>
 						<input type="email" class="form-control input-sm" id="correo" name="">
 					</div>
 					<div class="form-group">
@@ -159,8 +158,8 @@
 		$(window).on('load', function () {
 			bootbox.alert({
 				size: "large",
-				title: "Bienvenido al recomendador de frameworks",
-				message: "Instrucciones: <br> Para utilizar el recomendador, debe completar todos los campos del formulario y presionar 'Enviar'. <br> Luego se desplegará la opcion que le sugiere el recomendador. <br> ¡Listo! Ya sabes como utilizar el recomendador. ",
+				title: "Bienvenido a la herramienta sugeridora de frameworks",
+				message: "Instrucciones: <br> Para utilizar la aplicación, debe completar todos los campos del formulario y presionar 'Enviar'. <br> Luego se desplegará la opción que le sugiere la herramienta. <br> ¡Listo! Ya sabes como utilizar la herramienta. ",
 				callback: function () { /* your callback code */ }
 			})
 		});
@@ -191,7 +190,7 @@
 				alertify.alert("Error", "Debe ingresar su nombre");
 				return false;
 			} else if ($('#correo').val() == "") {
-				alertify.alert("Error", "Debe ingresar su correo");
+				alertify.alert("Error", "Debe ingresar su correo electrónico");
 				return false;
 			} else if ($('#nombreEmpresa').val() == "") {
 				alertify.alert("Error", "Debe ingresar el nombre de la empresa");
@@ -501,7 +500,7 @@
 				bootbox.alert({
 					size: "large",
 					title: "Resultado",
-					message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
+                    message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Características: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegúrese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utilizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
 					callback: function () { /* your callback code */ }
 				})
 				resultado = "Electronjs";
@@ -511,7 +510,7 @@
 				bootbox.alert({
 					size: "large",
 					title: "Resultado",
-					message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Caracteristicas: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegurese de no llamar modulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
+                    message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Características: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegúrese de no llamar módulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
 					callback: function () { /* your callback code */ }
 				})
 				resultado = "NWJS";
@@ -521,7 +520,7 @@
 				bootbox.alert({
 					size: "large",
 					title: "Resultado",
-					message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> Sciter</b> </center><br><center> Sciter trae un sinnúmero de tecnologías web para el desarrollo de la interfaz de usuario de escritorio.</center> <br>Caracteristicas: <ul> <li>Escriba el código una vez e impleméntelo en Windows, Linux y Mac OS X.</li><li>Sciter usa C API, se puede usar con cualquier lenguaje de programación.</li><li>Preferida por grandes compañias, tales como Avast, ESET y BitDefender.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Si su aplicación es muy grande, debe adquirir una licencia.</li><li>Utiliza Sciter Scripting, por lo que es importante leer la documentacion asociada.</li></ul><br>Documentación: https://sciter.com/developers/sciter-docs/",
+                    message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> Sciter</b> </center><br><center> Sciter trae un sinnúmero de tecnologías web para el desarrollo de la interfaz de usuario de escritorio.</center> <br>Características: <ul> <li>Escriba el código una vez e impleméntelo en Windows, Linux y Mac OS X.</li><li>Sciter usa C API, se puede usar con cualquier lenguaje de programación.</li><li>Preferida por grandes compañías, tales como Avast, ESET y BitDefender.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Si su aplicación es muy grande, debe adquirir una licencia.</li><li>Utiliza Sciter Scripting, por lo que es importante leer la documentación asociada.</li></ul><br>Documentación: https://sciter.com/developers/sciter-docs/",
 					callback: function () { /* your callback code */ }
 				})
 				resultado = "Sciter";
@@ -548,7 +547,7 @@
 						$('#formulario')[0].reset();
 						//alertify.success("Agregado con exito");
 					} else {
-						alertify.error("Error", "Ocurrio un error");
+						alertify.error("Error", "Ocurrió un error");
 					}
 				}
 			});
