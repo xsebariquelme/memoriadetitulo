@@ -93,6 +93,33 @@
 						</select>
 					</div>
 
+					<div class="form-group">
+						<label for="stackoverflow" data-toggle="tooltip" title="¿Es relevante la participación del framework en Stack Overflow?"
+						 style="color:black;">¿Es relevante la participación del framework en Stack Overflow?</label>
+						<select class="form-control" id="stackoverflow">
+							<option value="1">No es relevante</option>
+							<option value="2">Es relevante</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="espera" data-toggle="tooltip" title="¿Cuanto tiempo de espera es adecuado?" style="color:black;">Tiempo de respuesta en los foros oficiales</label>
+						<select class="form-control" id="espera">
+							<option value="1">No es relevante</option>
+							<option value="2">Tiempo corto de espera</option>
+							<option value="3">Tiempo medio de espera</option>
+							<option value="4">Tiempo extenso de espera</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="documentacion" data-toggle="tooltip" title="¿Cuanta documentación necesita?" style="color:black;">Cantidad de documentación</label>
+						<select class="form-control" id="documentacion">
+							<option value="1">Irrelevante</option>
+							<option value="2">Poca documentación</option>
+							<option value="3">Documentación mediana</option>
+							<option value="4">Mucha documentación</option>
+						</select>
+					</div>
+
 				</form>
 				<div class="row">
 					<div class="col-sm-12 col-sm-offset-9">
@@ -142,10 +169,23 @@
 		$(document).on("click", ".alert", function (e) {
 			var area = document.getElementById('area');
 			var tamano = document.getElementById('tamano');
+			var stackoverflow = document.getElementById('stackoverflow');
+			var documentacion = document.getElementById('espera');
+			var tiempoRespuesta = document.getElementById('documentacion');
 			var areaValue = area.options[area.selectedIndex].value;
 			var tamanoValue = tamano.options[tamano.selectedIndex].value;
 			var areaText = area.options[area.selectedIndex].text;
 			var tamanoText = tamano.options[tamano.selectedIndex].text;
+			var stackoverflowValue = stackoverflow.options[stackoverflow.selectedIndex].value;
+			var stackoverflowText = stackoverflow.options[stackoverflow.selectedIndex].text;
+			var documentacionValue = documentacion.options[documentacion.selectedIndex].value;
+			var documentacionText = documentacion.options[documentacion.selectedIndex].text;
+			var tiempoRespuestaValue = tiempoRespuesta.options[tiempoRespuesta.selectedIndex].value;
+			var tiempoRespuestaText = tiempoRespuesta.options[tiempoRespuesta.selectedIndex].text;
+			var puntajeElectron = 0;
+			var puntajeSciter = 0;
+			var puntajeNWJS = 0;
+
 			var resultado;
 			if ($('#nombre').val() == "") {
 				alertify.alert("Error", "Debe ingresar su nombre");
@@ -164,92 +204,43 @@
 					switch (tamanoValue) {
 						case '1':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+							puntajeElectron += 2;
 							break;
 
 						case '2':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+							puntajeElectron += 2;
 							break;
 
 						case '3':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							break;
-							resultado = "Electronjs";
+							puntajeElectron += 2;
 						case '4':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							break;
-							resultado = "Electronjs";
+							puntajeElectron += 2;
 					}
 					break;
 				case '2':
 					switch (tamanoValue) {
 						case '1':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+							puntajeElectron += 2;
 							break;
 
 						case '2':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+							puntajeElectron += 2;
 							break;
 
 						case '3':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> Sciter</b> </center><br><center> Sciter trae un sinnúmero de tecnologías web para el desarrollo de la interfaz de usuario de escritorio.</center> <br>Caracteristicas: <ul> <li>Escriba el código una vez e impleméntelo en Windows, Linux y Mac OS X.</li><li>Sciter usa C API, se puede usar con cualquier lenguaje de programación.</li><li>Preferida por grandes compañias, tales como Avast, ESET y BitDefender.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Si su aplicación es muy grande, debe adquirir una licencia.</li><li>Utiliza Sciter Scripting, por lo que es importante leer la documentacion asociada.</li></ul><br>Documentación: https://sciter.com/developers/sciter-docs/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Sciter";
+							puntajeSciter += 2;
 							break;
 
 						case '4':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> Sciter</b> </center><br><center> Sciter trae un sinnúmero de tecnologías web para el desarrollo de la interfaz de usuario de escritorio.</center> <br>Caracteristicas: <ul> <li>Escriba el código una vez e impleméntelo en Windows, Linux y Mac OS X.</li><li>Sciter usa C API, se puede usar con cualquier lenguaje de programación.</li><li>Preferida por grandes compañias, tales como Avast, ESET y BitDefender.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Si su aplicación es muy grande, debe adquirir una licencia.</li><li>Utiliza Sciter Scripting, por lo que es importante leer la documentacion asociada.</li></ul><br>Documentación: https://sciter.com/developers/sciter-docs/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Sciter";
+
+							puntajeSciter += 2;
 							break;
 
 					}
@@ -258,46 +249,21 @@
 					switch (tamanoValue) {
 						case '1':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+							puntajeElectron += 2;
 							break;
 
 						case '2':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+							puntajeElectron += 2;
 							break;
 
 						case '3':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+							puntajeElectron += 2;
 							break;
 
 						case '4':
-
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Caracteristicas: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegurese de no llamar modulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "NWJS";
+							puntajeNWJS += 2;
 							break;
 
 					}
@@ -306,46 +272,24 @@
 					switch (tamanoValue) {
 						case '1':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+
+							puntajeElectron += 2;
 							break;
 
 						case '2':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+
+							puntajeElectron += 2;
 							break;
 
 						case '3':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Caracteristicas: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegurese de no llamar modulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "NWJS";
+							puntajeNWJS += 2;
 							break;
 
 						case '4':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+							puntajeElectron += 2;
 							break;
 
 					}
@@ -354,46 +298,24 @@
 					switch (tamanoValue) {
 						case '1':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Caracteristicas: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegurese de no llamar modulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "NWJS";
+
+							puntajeNWJS += 2;
 							break;
 
 						case '2':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+							puntajeElectron += 2;
 							break;
 
 						case '3':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+
+							puntajeElectron += 2;
 							break;
 
 						case '4':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+							puntajeElectron += 2;
 							break;
 
 					}
@@ -402,46 +324,25 @@
 					switch (tamanoValue) {
 						case '1':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+
+							puntajeElectron += 2;
 							break;
 
 						case '2':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> Sciter</b> </center><br><center> Sciter trae un sinnúmero de tecnologías web para el desarrollo de la interfaz de usuario de escritorio.</center> <br>Caracteristicas: <ul> <li>Escriba el código una vez e impleméntelo en Windows, Linux y Mac OS X.</li><li>Sciter usa C API, se puede usar con cualquier lenguaje de programación.</li><li>Preferida por grandes compañias, tales como Avast, ESET y BitDefender.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Si su aplicación es muy grande, debe adquirir una licencia.</li><li>Utiliza Sciter Scripting, por lo que es importante leer la documentacion asociada.</li></ul><br>Documentación: https://sciter.com/developers/sciter-docs/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Sciter";
+
+							puntajeSciter += 2;
 							break;
 
 						case '3':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> Sciter</b> </center><br><center> Sciter trae un sinnúmero de tecnologías web para el desarrollo de la interfaz de usuario de escritorio.</center> <br>Caracteristicas: <ul> <li>Escriba el código una vez e impleméntelo en Windows, Linux y Mac OS X.</li><li>Sciter usa C API, se puede usar con cualquier lenguaje de programación.</li><li>Preferida por grandes compañias, tales como Avast, ESET y BitDefender.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Si su aplicación es muy grande, debe adquirir una licencia.</li><li>Utiliza Sciter Scripting, por lo que es importante leer la documentacion asociada.</li></ul><br>Documentación: https://sciter.com/developers/sciter-docs/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Sciter";
+
+							puntajeSciter += 2;
 							break;
 
 						case '4':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> Sciter</b> </center><br><center> Sciter trae un sinnúmero de tecnologías web para el desarrollo de la interfaz de usuario de escritorio.</center> <br>Caracteristicas: <ul> <li>Escriba el código una vez e impleméntelo en Windows, Linux y Mac OS X.</li><li>Sciter usa C API, se puede usar con cualquier lenguaje de programación.</li><li>Preferida por grandes compañias, tales como Avast, ESET y BitDefender.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Si su aplicación es muy grande, debe adquirir una licencia.</li><li>Utiliza Sciter Scripting, por lo que es importante leer la documentacion asociada.</li></ul><br>Documentación: https://sciter.com/developers/sciter-docs/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Sciter";
+							puntajeSciter += 2;
 							break;
 
 					}
@@ -450,46 +351,24 @@
 					switch (tamanoValue) {
 						case '1':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+
+							puntajeElectron += 2;
 							break;
 
 						case '2':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+
+							puntajeElectron += 2;
 							break;
 
 						case '3':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> Sciter</b> </center><br><center> Sciter trae un sinnúmero de tecnologías web para el desarrollo de la interfaz de usuario de escritorio.</center> <br>Caracteristicas: <ul> <li>Escriba el código una vez e impleméntelo en Windows, Linux y Mac OS X.</li><li>Sciter usa C API, se puede usar con cualquier lenguaje de programación.</li><li>Preferida por grandes compañias, tales como Avast, ESET y BitDefender.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Si su aplicación es muy grande, debe adquirir una licencia.</li><li>Utiliza Sciter Scripting, por lo que es importante leer la documentacion asociada.</li></ul><br>Documentación: https://sciter.com/developers/sciter-docs/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Sciter";
+							puntajeSciter += 2;
 							break;
 
 						case '4':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> Sciter</b> </center><br><center> Sciter trae un sinnúmero de tecnologías web para el desarrollo de la interfaz de usuario de escritorio.</center> <br>Caracteristicas: <ul> <li>Escriba el código una vez e impleméntelo en Windows, Linux y Mac OS X.</li><li>Sciter usa C API, se puede usar con cualquier lenguaje de programación.</li><li>Preferida por grandes compañias, tales como Avast, ESET y BitDefender.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Si su aplicación es muy grande, debe adquirir una licencia.</li><li>Utiliza Sciter Scripting, por lo que es importante leer la documentación asociada.</li></ul><br>Documentación: https://sciter.com/developers/sciter-docs/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Sciter";
+							puntajeSciter += 2;
 							break;
 
 					}
@@ -498,46 +377,25 @@
 					switch (tamanoValue) {
 						case '1':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+							puntajeElectron += 2;
 							break;
 
 						case '2':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "Electronjs";
+
+							puntajeElectron += 2;
 							break;
 
 						case '3':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Caracteristicas: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegurese de no llamar modulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "NWJS";
+
+							puntajeNWJS += 2;
 							break;
 
 						case '4':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Caracteristicas: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegurese de no llamar modulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "NWJS";
+
+							puntajeNWJS += 2;
 							break;
 
 					}
@@ -546,46 +404,26 @@
 					switch (tamanoValue) {
 						case '1':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Caracteristicas: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegurese de no llamar modulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "NWJS";
+
+							puntajeNWJS += 2;
 							break;
 
 						case '2':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Caracteristicas: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegurese de no llamar modulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "NWJS";
+
+							puntajeNWJS += 2;
 							break;
 
 						case '3':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Caracteristicas: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegurese de no llamar modulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "NWJS";
+
+							puntajeNWJS += 2;
 							break;
 
 						case '4':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Caracteristicas: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegurese de no llamar modulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "NWJS";
+
+							puntajeNWJS += 2;
 							break;
 
 					}
@@ -594,46 +432,24 @@
 					switch (tamanoValue) {
 						case '1':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Caracteristicas: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegurese de no llamar modulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "NWJS";
+
+							puntajeNWJS += 2;
 							break;
 
 						case '2':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Caracteristicas: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegurese de no llamar modulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "NWJS";
+							puntajeNWJS += 2;
 							break;
 
 						case '3':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Caracteristicas: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegurese de no llamar modulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "NWJS";
+
+							puntajeNWJS += 2;
 							break;
 
 						case '4':
 
-							bootbox.alert({
-								size: "large",
-								title: "Resultado",
-								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Caracteristicas: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegurese de no llamar modulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
-								callback: function () { /* your callback code */ }
-							})
-							resultado = "NWJS";
+							puntajeNWJS += 2;
 							break;
 
 					}
@@ -641,12 +457,106 @@
 
 			}
 
+
+
+			switch (stackoverflowValue) {
+				case '1':
+
+
+					break;
+
+				case '2':
+
+					puntajeElectron++;
+					break;
+
+
+			}
+
+			switch (tiempoRespuestaValue) {
+				case '1':
+
+
+					break;
+
+				case '2':
+
+					puntajeElectron++;
+					break;
+				case '3':
+
+					puntajeSciter++;
+					break;
+				case '4':
+
+					puntajeNWJS++;
+					break;
+
+
+			}
+
+			switch (documentacionValue) {
+				case '1':
+
+
+					break;
+
+				case '2':
+
+					puntajeNWJS++;
+					break;
+				case '3':
+
+					puntajeSciter++;
+					break;
+				case '4':
+
+					puntajeElectron++;
+					break;
+
+
+			}
+			
+			if(puntajeElectron >= puntajeNWJS && puntajeElectron >= puntajeSciter){
+				bootbox.alert({
+								size: "large",
+								title: "Resultado",
+								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Caracteristicas: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegurese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utlizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
+								callback: function () { /* your callback code */ }
+							})
+							resultado = "Electronjs";
+			}
+			
+			if(puntajeNWJS >= puntajeElectron && puntajeNWJS >= puntajeSciter){
+				bootbox.alert({
+								size: "large",
+								title: "Resultado",
+								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Caracteristicas: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegurese de no llamar modulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
+								callback: function () { /* your callback code */ }
+							})
+							resultado = "NWJS";
+			}
+
+			if(puntajeSciter >= puntajeNWJS && puntajeSciter >= puntajeElectron){
+				bootbox.alert({
+								size: "large",
+								title: "Resultado",
+								message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> Sciter</b> </center><br><center> Sciter trae un sinnúmero de tecnologías web para el desarrollo de la interfaz de usuario de escritorio.</center> <br>Caracteristicas: <ul> <li>Escriba el código una vez e impleméntelo en Windows, Linux y Mac OS X.</li><li>Sciter usa C API, se puede usar con cualquier lenguaje de programación.</li><li>Preferida por grandes compañias, tales como Avast, ESET y BitDefender.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Si su aplicación es muy grande, debe adquirir una licencia.</li><li>Utiliza Sciter Scripting, por lo que es importante leer la documentacion asociada.</li></ul><br>Documentación: https://sciter.com/developers/sciter-docs/",
+								callback: function () { /* your callback code */ }
+							})
+							resultado = "Sciter";
+			}
+
+
 			cadena = "nombre=" + $('#nombre').val() +
 				"&correo=" + $('#correo').val() +
 				"&nombreEmpresa=" + $('#nombreEmpresa').val() +
 				"&areaEmpresa=" + areaText +
 				"&tamanoEmpresa=" + tamanoText +
-				"&resultado="+ resultado;
+				"&stackoverflow" + stackoverflowText +
+				"&tiempo" + tiempoRespuestaText +
+				"&documentacion" + documentacionText +
+				"&resultado=" + resultado;
 
 			$.ajax({
 				type: "POST",
