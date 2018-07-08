@@ -56,19 +56,19 @@
 			<div class="card-body">
 				<form id="formulario">
 					<div class="form-group">
-						<label for="nombre" data-toggle="tooltip" title="Ingrese su nombre" style="color:black;">Nombre</label>
+						<label for="nombre" data-toggle="tooltip" placeholder="Ingrese su nombre" title="Ingrese su nombre" style="color:black;">Nombre</label>
 						<input type="text" class="form-control input-sm" id="nombre" name="">
 					</div>
 					<div class="form-group">
-						<label for="correo" data-toggle="tooltip" title="Ingrese su correo electrónico" style="color:black;">Correo Electrónico</label>
+						<label for="correo" data-toggle="tooltip" placeholder="Ingrese su correo electrónico" title="Ingrese su correo electrónico" style="color:black;">Correo Electrónico</label>
 						<input type="email" class="form-control input-sm" id="correo" name="">
 					</div>
 					<div class="form-group">
-						<label for="nombreEmpresa" data-toggle="tooltip" title="Ingrese el nombre de su empresa" style="color:black;">Nombre de la empresa</label>
+						<label for="nombreEmpresa" data-toggle="tooltip" placeholder="Ingrese el nombre se su empresa" title="Ingrese el nombre de su empresa" style="color:black;">Nombre de su empresa</label>
 						<input type="text" class="form-control input-sm" id="nombreEmpresa" name="">
 					</div>
 					<div class="form-group">
-						<label for="area" data-toggle="tooltip" title="Seleccione el área de su empresa" style="color:black;">Área de la empresa</label>
+						<label for="area" data-toggle="tooltip"  title="Seleccione el área de la empresa objetivo" style="color:black;">Seleccione el área de la empresa objetivo</label>
 						<select class="form-control" id="area">
 							<option value="Seleccione su opción">Seleccione su opción</option>
 							<option value="1">Análisis de datos</option>
@@ -84,7 +84,7 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="tamano" data-toggle="tooltip" title="Seleccione el tamaño de su empresa" style="color:black;">Tamaño de la empresa</label>
+						<label for="tamano" data-toggle="tooltip" title="Seleccione el tamaño de su empresa" style="color:black;">Tamaño de la empresa empresa objetivo</label>
 						<select class="form-control" id="tamano">
 							<option value="Seleccione su opción">Seleccione su opción</option>
 							<option value="1">Microempresa (1 a de 5 personas)</option>
@@ -96,7 +96,7 @@
 
 					<div class="form-group">
 						<label for="stackoverflow" data-toggle="tooltip" title="¿Es relevante la participación del framework en Stack Overflow?"
-						 style="color:black;">¿Es relevante la participación del framework en Stack Overflow?</label>
+						 style="color:black;">¿Es relevante para usted la participación del framework en Stack Overflow?</label>
 						<select class="form-control" id="stackoverflow">
 							<option value="Seleccione su opción">Seleccione su opción</option>
 							<option value="1">Irrelevante</option>
@@ -104,7 +104,7 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="espera" data-toggle="tooltip" title="¿Cuanto tiempo de espera es adecuado?" style="color:black;">Tiempo de respuesta en los foros oficiales</label>
+						<label for="espera" data-toggle="tooltip" title="¿Cuanto tiempo de espera es adecuado?" style="color:black;">¿Es relevante para usted el tiempo de respuesta en los foros oficiales?</label>
 						<select class="form-control" id="espera">
 							<option value="Seleccione su opción">Seleccione su opción</option>
 							<option value="1">Irrelevante</option>
@@ -114,7 +114,7 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="documentacion" data-toggle="tooltip" title="¿Cuanta documentación necesita?" style="color:black;">Cantidad de documentación</label>
+						<label for="documentacion" data-toggle="tooltip" title="¿Cuanta documentación necesita?" style="color:black;">¿Es relevante para usted la cantidad de documentación disponible?</label>
 						<select class="form-control" id="documentacion">
 							<option value="Seleccione su opción">Seleccione su opción</option>
 							<option value="1">Irrelevante</option>
@@ -198,22 +198,22 @@
 				alertify.alert("Error", "Debe ingresar su correo electrónico");
 				return false;
 			} else if ($('#nombreEmpresa').val() == "") {
-				alertify.alert("Error", "Debe ingresar el nombre de la empresa");
+				alertify.alert("Error", "Debe ingresar el nombre de su empresa");
 				return false;
 			} else if ($('#area').val() == "Seleccione su opción") {
-				alertify.alert("Error", "Debe seleccionar la opción");
+				alertify.alert("Error", "Debe seleccionar el área de la empresa objetivo");
 				return false;
 			} else if ($('#tamano').val() == "Seleccione su opción") {
-				alertify.alert("Error", "Debe seleccionar la opción");
+				alertify.alert("Error", "Debe seleccionar la el tamaño de la empresa objetivo");
 				return false;
 			} else if ($('#stackoverflow').val() == "Seleccione su opción") {
-				alertify.alert("Error", "Debe seleccionar la opción");
+				alertify.alert("Error", "Debe responder a la pregunta: ¿Es relevante para usted la participación del framework en Stack Overflow?");
 				return false;
 			} else if ($('#espera').val() == "Seleccione su opción") {
-				alertify.alert("Error", "Debe seleccionar la opción");
+				alertify.alert("Error", "Debe responder a la pregunta: ¿Es relevante para usted el tiempo de respuesta en los foros oficiales?");
 				return false;
 			} else if ($('#documentacion').val() == "Seleccione su opción") {
-				alertify.alert("Error", "Debe seleccionar la opción");
+				alertify.alert("Error", "Debe responder a la pregunta: ¿Es relevante para usted la cantidad de documentación disponible?");
 				return false;
 			}
 
