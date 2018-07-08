@@ -8,7 +8,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="../../../../favicon.ico">
 
-	<title>Herramienta sugeridora de Frameworks</title>
+	<title>ADVISER</title>
 
 	<!-- Bootstrap core CSS -->
 	<link href="bootstrap.css" rel="stylesheet">
@@ -37,7 +37,7 @@
 						<a class="nav-link" href="index.html">Inicio </a>
 					</li>
 					<li class="nav-item active">
-						<a class="nav-link" href="herramienta.html">Herramienta sugeridora
+						<a class="nav-link" href="herramienta.html">ADVISER
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
@@ -50,7 +50,7 @@
 	<!-- Begin page content -->
 	<main role="main" class="container">
 		<h1 class="cover-heading">
-			<center>Herramienta sugeridora de Frameworks</center>
+			<center>ADVISER</center>
 		</h1>
 		<div class="card">
 			<div class="card-body">
@@ -70,6 +70,7 @@
 					<div class="form-group">
 						<label for="area" data-toggle="tooltip" title="Seleccione el área de su empresa" style="color:black;">Área de la empresa</label>
 						<select class="form-control" id="area">
+							<option value="Seleccione su opción">Seleccione su opción</option>
 							<option value="1">Análisis de datos</option>
 							<option value="2">Bancarias</option>
 							<option value="3">Comercio</option>
@@ -85,6 +86,7 @@
 					<div class="form-group">
 						<label for="tamano" data-toggle="tooltip" title="Seleccione el tamaño de su empresa" style="color:black;">Tamaño de la empresa</label>
 						<select class="form-control" id="tamano">
+							<option value="Seleccione su opción">Seleccione su opción</option>
 							<option value="1">Microempresa (1 a de 5 personas)</option>
 							<option value="2">Pequeña (6 a 50 personas)</option>
 							<option value="3">Mediana (51 a 400 personas)</option>
@@ -96,6 +98,7 @@
 						<label for="stackoverflow" data-toggle="tooltip" title="¿Es relevante la participación del framework en Stack Overflow?"
 						 style="color:black;">¿Es relevante la participación del framework en Stack Overflow?</label>
 						<select class="form-control" id="stackoverflow">
+							<option value="Seleccione su opción">Seleccione su opción</option>
 							<option value="1">Irrelevante</option>
 							<option value="2">Es relevante</option>
 						</select>
@@ -103,6 +106,7 @@
 					<div class="form-group">
 						<label for="espera" data-toggle="tooltip" title="¿Cuanto tiempo de espera es adecuado?" style="color:black;">Tiempo de respuesta en los foros oficiales</label>
 						<select class="form-control" id="espera">
+							<option value="Seleccione su opción">Seleccione su opción</option>
 							<option value="1">Irrelevante</option>
 							<option value="2">Tiempo corto de espera</option>
 							<option value="3">Tiempo medio de espera</option>
@@ -112,6 +116,7 @@
 					<div class="form-group">
 						<label for="documentacion" data-toggle="tooltip" title="¿Cuanta documentación necesita?" style="color:black;">Cantidad de documentación</label>
 						<select class="form-control" id="documentacion">
+							<option value="Seleccione su opción">Seleccione su opción</option>
 							<option value="1">Irrelevante</option>
 							<option value="2">Poca documentación</option>
 							<option value="3">Documentación mediana</option>
@@ -158,8 +163,8 @@
 		$(window).on('load', function () {
 			bootbox.alert({
 				size: "large",
-				title: "Bienvenido a la herramienta sugeridora de frameworks",
-				message: "Instrucciones: <br> Para utilizar la aplicación, debe completar todos los campos del formulario y presionar 'Enviar'. <br> Luego se desplegará la opción que le sugiere la herramienta. <br> ¡Listo! Ya sabes como utilizar la herramienta. ",
+				title: "Bienvenido a ADVISER",
+				message: "Instrucciones: <br> Para utilizar la aplicación, debe completar todos los campos del formulario y presionar 'Enviar'. <br> Luego se desplegará la opción que le sugiere ADVISER. <br> ¡Listo! Ya sabes como utilizar ADVISER. ",
 				callback: function () { /* your callback code */ }
 			})
 		});
@@ -194,6 +199,21 @@
 				return false;
 			} else if ($('#nombreEmpresa').val() == "") {
 				alertify.alert("Error", "Debe ingresar el nombre de la empresa");
+				return false;
+			} else if ($('#area').val() == "Seleccione su opción") {
+				alertify.alert("Error", "Debe seleccionar la opción");
+				return false;
+			} else if ($('#tamano').val() == "Seleccione su opción") {
+				alertify.alert("Error", "Debe seleccionar la opción");
+				return false;
+			} else if ($('#stackoverflow').val() == "Seleccione su opción") {
+				alertify.alert("Error", "Debe seleccionar la opción");
+				return false;
+			} else if ($('#espera').val() == "Seleccione su opción") {
+				alertify.alert("Error", "Debe seleccionar la opción");
+				return false;
+			} else if ($('#documentacion').val() == "Seleccione su opción") {
+				alertify.alert("Error", "Debe seleccionar la opción");
 				return false;
 			}
 
@@ -457,9 +477,7 @@
 			}
 
 
-			console.log(puntajeElectron);
-			console.log(puntajeNWJS);
-			console.log(puntajeSciter);
+
 
 
 			if (stackoverflowValue == 2) {
@@ -491,16 +509,13 @@
 			}
 
 
-			console.log(puntajeElectron);
-			console.log(puntajeNWJS);
-			console.log(puntajeSciter);
-
+			
 
 			if (puntajeElectron >= puntajeNWJS && puntajeElectron >= puntajeSciter) {
 				bootbox.alert({
 					size: "large",
 					title: "Resultado",
-                    message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Características: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegúrese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utilizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
+					message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> ElectronJS</b> </center><br><center> Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML y CSS.</center> <br>Características: <ul> <li>Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.</li><li>Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.</li><li>Compatible con Mac, Windows y Linux</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de JavaScript.</li><li>Asegúrese de importar solo los paquetes necesarios.</li><li>Para un uso correcto, lea la documentación antes de utilizarlo.</li></ul><br>Documentación: https://electronjs.org/docs",
 					callback: function () { /* your callback code */ }
 				})
 				resultado = "Electronjs";
@@ -510,7 +525,7 @@
 				bootbox.alert({
 					size: "large",
 					title: "Resultado",
-                    message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Características: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegúrese de no llamar módulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
+					message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> NWJS</b> </center><br><center> NW.js (anteriormente conocido como node-webkit) le permite llamar a todos los módulos de Node.js directamente desde DOM y permite una nueva forma de escribir aplicaciones con todas las tecnologías web.</center> <br>Características: <ul> <li>Soporte completo para las API de Node.js y todos los módulos de terceros.</li><li>Soporte completo para las funciones en el navegador.</li><li>Disponible en Linux, Mac OS X y Windows.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Asegúrese de no llamar módulos de NodeJS que no utilizará.</li><li>Es importante leer la documentación antes de comenzar el proyecto.</li></ul><br>Documentación: http://docs.nwjs.io/en/latest/",
 					callback: function () { /* your callback code */ }
 				})
 				resultado = "NWJS";
@@ -520,7 +535,7 @@
 				bootbox.alert({
 					size: "large",
 					title: "Resultado",
-                    message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> Sciter</b> </center><br><center> Sciter trae un sinnúmero de tecnologías web para el desarrollo de la interfaz de usuario de escritorio.</center> <br>Características: <ul> <li>Escriba el código una vez e impleméntelo en Windows, Linux y Mac OS X.</li><li>Sciter usa C API, se puede usar con cualquier lenguaje de programación.</li><li>Preferida por grandes compañías, tales como Avast, ESET y BitDefender.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Si su aplicación es muy grande, debe adquirir una licencia.</li><li>Utiliza Sciter Scripting, por lo que es importante leer la documentación asociada.</li></ul><br>Documentación: https://sciter.com/developers/sciter-docs/",
+					message: "<center>Para el área " + areaText + " y el tamaño " + tamanoText + " el framework adecuado es:<b> Sciter</b> </center><br><center> Sciter trae un sinnúmero de tecnologías web para el desarrollo de la interfaz de usuario de escritorio.</center> <br>Características: <ul> <li>Escriba el código una vez e impleméntelo en Windows, Linux y Mac OS X.</li><li>Sciter usa C API, se puede usar con cualquier lenguaje de programación.</li><li>Preferida por grandes compañías, tales como Avast, ESET y BitDefender.</li></ul><br>Sugerencias: <br><ul> <li>Debe conocer conceptos de programación Web (HTML,CSS,JS).</li><li>Si su aplicación es muy grande, debe adquirir una licencia.</li><li>Utiliza Sciter Scripting, por lo que es importante leer la documentación asociada.</li></ul><br>Documentación: https://sciter.com/developers/sciter-docs/",
 					callback: function () { /* your callback code */ }
 				})
 				resultado = "Sciter";
